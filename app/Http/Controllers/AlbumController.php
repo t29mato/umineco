@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DailyController extends Controller
+class AlbumController extends Controller
 {
     public function index()
     {
-        return view('daily.index');
+        return view('album.index');
     }
 
     public function create()
     {
-        return view('daily.create');
+        return view('album.create');
     }
 
 }

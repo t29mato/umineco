@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'daily'], function() {
-    Route::get('/', 'DailyController@index');
-    Route::get('/create', 'DailyController@create');
+Route::group(['prefix' => 'album'], function() {
+    Route::get('/', 'AlbumController@index');
+    Route::get('/create', 'AlbumController@create');
 });

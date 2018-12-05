@@ -11,9 +11,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-9">
-            <h2>日記作成</h2>
+            <h2>アルバム作成</h2>
             <div class="card">
-                <div class="card-header">日記の設定</div>
+                <div class="card-header">アルバムの設定</div>
                 <div class="card-body">
                     <p class="lead">日程</p>
                     <div class="input-group mb-3">
