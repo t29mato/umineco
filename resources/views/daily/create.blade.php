@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('script')
+<script src="/js/fileupload/jquery.ui.widget.js"></script>
+<script src="/js/fileupload/jquery.iframe-transport.js"></script>
+<script src="/js/fileupload/jquery.fileupload.js"></script>
+<script src="/js/fileupload/init.js"></script>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
