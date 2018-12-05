@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'daily'], function() {
+    Route::get('/', 'DailyController@index');
+    Route::get('/create', 'DailyController@create');
+});
