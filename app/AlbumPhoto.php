@@ -7,7 +7,14 @@ use App\Album;
 
 class AlbumPhoto extends Model
 {
-    protected $fillable = ['album_id', 'filename'];
+    protected $fillable = array(
+        'album_id',
+        'filename',
+    );
+
+    public static $rules = array(
+        'filename' => 'required',
+    );
 
     public function album()
     {
