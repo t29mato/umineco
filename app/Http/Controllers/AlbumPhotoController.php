@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\AlbumPhotos;
+use App\AlbumPhoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class AlbumPhotosController extends Controller
+class AlbumPhotoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,8 +36,21 @@ class AlbumPhotosController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $photos = [];
+        foreach ($request->photos as $photo) {
+            $filename = $photo->store('photos');
+            $album_photo = AlbumPhoto::create([
+                'filename' => $filename
+            ]);
+
+            $photo_object = new \stdClass();
+            $photo_object->name = str_replace('photos/', '',$photo->getClientOriginalName());
+            $photo_object->size = round(Storage::size($filename) / 1024, 2);
+            $photo_object->fileID = $album_photo->id;
+            $photos[] = $photo_object;
+            }
+            return response()->json(array('files' => $photos), 200);
+        }
 
     /**
      * Display the specified resource.

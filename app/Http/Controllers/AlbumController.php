@@ -24,7 +24,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('album.create');
     }
 
     /**
@@ -35,7 +35,10 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $album = Album::create($request->all());
+        AlbumPhoto::whereIn('id', explode(",", $request->file_ids))
+        ->update(['album_id' => $album->id]);
+        return 'Album saved successfuly';
     }
 
     /**
