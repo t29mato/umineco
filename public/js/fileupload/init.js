@@ -10,8 +10,15 @@ $(function () {
             },
             done: function (e, data) {
                 $.each(data.result.files, function (index, file) {
-                    $('<p/>').text(file.name).appendTo('#files');
-                    $('<img>').attr({src: file.url}).appendTo('#files');
+                    var html = '<div class="col-md-3">'
+                                + '<a href="#" class="thumbnail">'
+                                + '<img class="img-fluid" src="' + file.url + '">'
+                                + '</a>'
+                                + '<div class="input-group mb-3">'
+                                + '<input type="text" class="form-control" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1">'
+                                + '</div>'
+                                + '</div>';
+                    $('#files ').append(html);
                 });
             },
             progressall: function (e, data) {

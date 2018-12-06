@@ -76,7 +76,7 @@
                         <div class="progress-bar progress-bar-success"></div>
                     </div>
                     <!-- The container for the uploaded files -->
-                    <div id="files" class="files"></div>
+                    <div id="files" class="files row"></div>
 
 
 
