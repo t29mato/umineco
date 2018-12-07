@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Album;
+use App\AlbumPhoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AlbumController extends Controller
 {
@@ -14,7 +16,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        return view('album.index');
     }
 
     /**
@@ -35,10 +37,12 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, Album::$rules);
         $album = Album::create($request->all());
+        Log::info($request->file_ids);
         AlbumPhoto::whereIn('id', explode(",", $request->file_ids))
         ->update(['album_id' => $album->id]);
-        return 'Album saved successfuly';
+        return redirect('/album');
     }
 
     /**

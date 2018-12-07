@@ -5,13 +5,25 @@
 <script src="/js/fileupload/jquery.iframe-transport.js"></script>
 <script src="/js/fileupload/jquery.fileupload.js"></script>
 <script src="/js/fileupload/init.js"></script>
+<script src="/js/reload-forbidden.js"></script>
 @endsection
 
 @section('mainContents')
 <h2>アルバム作成</h2>
 <div class="card">
     <div class="card-header">アルバムの設定</div>
-    <div class="card-body">
+    @if (count($errors) > 0)
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    <form class="card-body" action="/album/create" method="post">
+        {{ csrf_field() }}
         <p class="lead">日程</p>
         <div class="input-group mb-3">
             <input type="date" class="form-control">
@@ -24,7 +36,7 @@
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="キーワードで検索" aria-label="キーワードで検索" aria-describedby="basic-addon2">
             <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">検索</button>
+                <button class="btn btn-outline-secondary" type="button">検索</button>
             </div>
         </div>
         <p class="lead">公開設定</p>
@@ -45,7 +57,8 @@
         <hr>
         <p class="lead">タイトル</p>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1">
+            <input type="text" name="title" value="" class="form-control" placeholder="タイトルを入力" aria-label="タイトルを入力"
+                aria-describedby="basic-addon1">
         </div>
         <p class="lead">メモ</p>
         <div class="input-group mb-3">
@@ -55,7 +68,7 @@
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="キーワードで検索" aria-label="キーワードで検索" aria-describedby="basic-addon2">
             <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">検索</button>
+                <button class="btn btn-outline-secondary" type="button">検索</button>
             </div>
         </div>
         <p class="lead">画像</p>
@@ -74,12 +87,11 @@
         </div>
         <!-- The container for the uploaded files -->
         <div id="files" class="files row"></div>
-
-
-    </div>
+        <input type="hidden" name="file_ids" id="file_ids" value="">
+        <button type="submit" class="btn btn-primary">アルバムを作成</button>
+    </form>
 </div>
 @endsection
 
 @section('sideContents')
-<button type="submit" class="btn btn-primary">アルバムを作成</button>
 @endsection

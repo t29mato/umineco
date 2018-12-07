@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'album'], function() {
     Route::get('/', 'AlbumController@index');
     Route::get('/create', 'AlbumController@create');
-    Route::post('/photo/store', 'AlbumPhotoController@store');
-    Route::post('/store', 'AlbumController@store');
+    Route::post('/create', 'AlbumController@store');
+    Route::post('/photo/create', 'AlbumPhotoController@store');
 });
 

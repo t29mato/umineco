@@ -12,12 +12,15 @@ No|Date|Time (h)|Memo
     - [] contents
         - [] create
             - [] File Type Validate for image file on front-end.
+            - [wip] store all input
+            - [done] submit button
         - [] read
         - [] update
         - [] delete
+    - [] places
+        - [] prepare master data
     - [] photos
-        - [WIP] create
-            - [WIP] submit button
+        - [done] create
         - [] read
         - [] update
         - [] delete
