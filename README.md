@@ -7,7 +7,10 @@ No|Date|Time (h)|Memo
 2|2018-12-05|3|
 1|2018-12-04|3|
 
-# Todo (development)
+# Progress Management for implement
+## Progress Rate
+20% (its just my feeling.)
+## Todo
 - [] album
     - [] contents
         - [] create
@@ -31,7 +34,12 @@ No|Date|Time (h)|Memo
 - [] user
 - [] top
 
-# Todo (Environment)
+# Progress Management for environment
+## Progress Rate
+10% (its just my feeling.)
+
+## Todo
+- [done] local env
 - [] production env
 - [] staging env
 - [] test env
