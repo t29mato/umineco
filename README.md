@@ -21,7 +21,8 @@ No|Date|Time (h)|Memo
         - [] update
         - [] delete
     - [] places
-        - [] prepare master data
+        - [wip] prepare master data
+        - [wip] ajax search by keyword
     - [] photos
         - [done] create
         - [] read
@@ -29,6 +30,8 @@ No|Date|Time (h)|Memo
         - [] delete
             - [] likes
             - [] comments
+        - [] tag
+        - [] title
     - [] likes
     - [] comments
 - [] user
@@ -46,4 +49,7 @@ No|Date|Time (h)|Memo
 
 # reference
 - multiple file upload
-https://laraveldaily.com/laravel-ajax-file-upload-blueimp-jquery-library/
+    - https://laraveldaily.com/laravel-ajax-file-upload-blueimp-jquery-library/
+- diving spot
+    - https://www.padi.co.jp/scuba-diving/scuba-vacations/vacation-spotlight/
+    - http://www.divenet.jp/contents/divesearch/spot/spot_domestic/top
