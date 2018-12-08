@@ -7,7 +7,7 @@ No|Date|Time (h)|Memo
 2|2018-12-05|3|
 1|2018-12-04|3|
 
-# Todo
+# Todo (development)
 - [] album
     - [] contents
         - [] create
@@ -30,6 +30,11 @@ No|Date|Time (h)|Memo
     - [] comments
 - [] user
 - [] top
+
+# Todo (Environment)
+- [] production env
+- [] staging env
+- [] test env
 
 # reference
 - multiple file upload
