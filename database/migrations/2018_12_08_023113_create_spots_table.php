@@ -15,6 +15,9 @@ class CreateSpotsTable extends Migration
     {
         Schema::create('spots', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('area_id')->unsigned();
+            $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
