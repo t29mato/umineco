@@ -20,9 +20,11 @@ No|Date|Time (h)|Memo
         - [] read
         - [] update
         - [] delete
-    - [] places
+    - [] spot
         - [wip] prepare master data
         - [wip] ajax search by keyword
+        - [wip] makde spot model
+        - [wip] makde area model
     - [] photos
         - [done] create
         - [] read

@@ -32,9 +32,9 @@
             </div>
             <input type="date" class="form-control">
         </div>
-        <p class="lead">場所</p>
+        <p class="lead">ダイビングスポット</p>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="キーワードで検索" aria-label="キーワードで検索" aria-describedby="basic-addon2">
+            <input type="text" name="spot" class="form-control" placeholder="キーワードで検索" aria-label="キーワードで検索" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">検索</button>
             </div>
