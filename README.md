@@ -2,6 +2,7 @@
 total time is 9 hour.
 No|Date|Time (h)|Memo
 |:-|:-|:-|:-|
+6|2018-12-10|0.5|
 5|2018-12-08|3|
 4|2018-12-07|3|
 3|2018-12-06|3|
@@ -22,10 +23,9 @@ No|Date|Time (h)|Memo
         - [] update
         - [] delete
     - [] spot
-        - [wip] prepare master data
         - [wip] ajax search by keyword
-        - [wip] makde spot model
-        - [wip] makde area model
+        - [wip] make spot model
+        - [wip] make area model
     - [] photos
         - [done] create
         - [] read
@@ -39,6 +39,8 @@ No|Date|Time (h)|Memo
     - [] comments
 - [] user
 - [] top
+- [] master data
+    - [wip] area data.
 
 # Progress Management for environment
 ## Progress Rate
