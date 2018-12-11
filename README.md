@@ -1,5 +1,5 @@
 # time tracking
-total time is 9 hour.
+total time is 18 hour.
 No|Date|Time (h)|Memo
 |:-|:-|:-|:-|
 7|2018-12-12|2.5|
