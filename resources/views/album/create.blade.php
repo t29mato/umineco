@@ -26,11 +26,30 @@
     <form class="card-body" action="/album/create" method="post">
         {{ csrf_field() }}
         <p class="lead">ダイビングスポット</p>
-        <div class="input-group mb-3" id="search-spot">
-            <input type="text" name="spot" class="form-control" placeholder="キーワードで検索" aria-label="キーワードで検索" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">検索</button>
-            </div>
+        <div class="form-group mb-3" id="search-spot">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                                <option value="">-- エリアを選択</option>
+                                @foreach ($areas as $area)
+                                    <option value="{{ $area->id }}">{{ $area->name }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                        <td>
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                            <option value="">-- スポットを選択</option>
+                                @foreach ($spots as $spot)
+                                    <option value="{{ $spot->id }}">{{ $spot->name }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                <label for="exampleFormControlSelect2">Example multiple select</label>
         </div>
         <p class="lead">日程</p>
         <div class="input-group mb-3">

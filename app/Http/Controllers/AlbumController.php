@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use App\AlbumPhoto;
+use App\Area;
+use App\Spot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -26,7 +28,13 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('album.create');
+        $areas = Area::get(['id', 'name']);
+        $spots = Spot::get(['id', 'name']);
+        $items = array(
+            'areas' => $areas,
+            'spots' => $spots,
+        );
+        return view('album.create', $items);
     }
 
     /**
