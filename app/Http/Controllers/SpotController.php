@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Spot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class SpotController extends Controller
 {
@@ -47,6 +48,11 @@ class SpotController extends Controller
     public function show(Spot $spot)
     {
         //
+    }
+
+    public function search($keyword)
+    {
+        return Spot::searchByKeyword($keyword);
     }
 
     /**

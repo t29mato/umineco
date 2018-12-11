@@ -6,6 +6,7 @@
 <script src="/js/fileupload/jquery.fileupload.js"></script>
 <script src="/js/fileupload/init.js"></script>
 <script src="/js/reload-forbidden.js"></script>
+<script src="/js/search-spot.js"></script>
 @endsection
 
 @section('mainContents')
@@ -24,6 +25,13 @@
 
     <form class="card-body" action="/album/create" method="post">
         {{ csrf_field() }}
+        <p class="lead">ダイビングスポット</p>
+        <div class="input-group mb-3" id="search-spot">
+            <input type="text" name="spot" class="form-control" placeholder="キーワードで検索" aria-label="キーワードで検索" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">検索</button>
+            </div>
+        </div>
         <p class="lead">日程</p>
         <div class="input-group mb-3">
             <input type="date" class="form-control">
@@ -31,13 +39,6 @@
                 <span class="input-group-text" id="">〜</span>
             </div>
             <input type="date" class="form-control">
-        </div>
-        <p class="lead">ダイビングスポット</p>
-        <div class="input-group mb-3">
-            <input type="text" name="spot" class="form-control" placeholder="キーワードで検索" aria-label="キーワードで検索" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">検索</button>
-            </div>
         </div>
         <p class="lead">公開設定</p>
         <div class="input-group mb-3">
@@ -88,7 +89,7 @@
         <!-- The container for the uploaded files -->
         <div id="files" class="files row"></div>
         <input type="hidden" name="file_ids" id="file_ids" value="">
-        <button type="submit" class="btn btn-primary">アルバムを作成</button>
+        <button type="button" class="btn btn-primary">アルバムを作成</button>
     </form>
 </div>
 @endsection

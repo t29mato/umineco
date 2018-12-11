@@ -24,8 +24,8 @@ No|Date|Time (h)|Memo
         - [] delete
     - [] spot
         - [wip] ajax search by keyword
-        - [wip] make spot model
-        - [wip] make area model
+            - [ready] display suggest window limit 10.
+            - [ready] execute by enter or key input.
     - [] photos
         - [done] create
         - [] read
@@ -44,7 +44,7 @@ No|Date|Time (h)|Memo
 
 # Progress Management for environment
 ## Progress Rate
-10% (its just my feeling.)
+15% (its just my feeling.)
 
 ## Todo
 - [done] local env
