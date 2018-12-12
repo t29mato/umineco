@@ -18,6 +18,7 @@ class CreateSpotsTable extends Migration
             $table->integer('area_id')->unsigned();
             $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name')->unique();
+            $table->string('name_kana')->unique();
             $table->timestamps();
         });
     }

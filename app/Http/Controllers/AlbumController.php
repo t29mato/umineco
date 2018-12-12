@@ -28,11 +28,9 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        $areas = Area::get(['id', 'name']);
-        $spots = Spot::get(['id', 'name']);
+        $areas = Area::orderBy('id', 'asc')->get(['id', 'name']);
         $items = array(
             'areas' => $areas,
-            'spots' => $spots,
         );
         return view('album.create', $items);
     }

@@ -50,9 +50,9 @@ class SpotController extends Controller
         //
     }
 
-    public function search($keyword)
+    public function search(int $areaId = null)
     {
-        return Spot::searchByKeyword($keyword);
+        return Spot::showByArea($areaId);
     }
 
     /**

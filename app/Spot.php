@@ -10,11 +10,20 @@ class Spot extends Model
 {
     protected $fillable = array('name');
 
+    // TODO: doesnt use
     public static function searchByKeyword($keyword)
     {
         return DB::table('spots')
         ->where('name', 'like', '%' . $keyword . '%')
         ->limit(10)
+        ->get();
+    }
+
+    public static function showByArea($areaId)
+    {
+        return DB::table('spots')
+        ->where('area_id', $areaId)
+        ->orderBy('name_kana', 'asc')
         ->get();
     }
 }

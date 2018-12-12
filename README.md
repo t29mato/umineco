@@ -3,7 +3,7 @@ total time is 18 hour.
 No|Date|Time (h)|Memo
 |:-|:-|:-|:-|
 8|2018-12-13|1.0|
-7|2018-12-12|2.5|
+7|2018-12-12|3.5|
 6|2018-12-10|0.5|
 5|2018-12-08|3|
 4|2018-12-07|3|
@@ -25,9 +25,7 @@ No|Date|Time (h)|Memo
         - [] update
         - [] delete
     - [] spot
-        - [wip] ajax search by keyword
-            - [ready] display suggest window limit 10.
-            - [ready] execute by enter or key input.
+        - [done] ajax select
     - [] photos
         - [done] create
         - [] read
