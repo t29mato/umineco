@@ -2,7 +2,8 @@
 total time is 18 hour.
 No|Date|Time (h)|Memo
 |:-|:-|:-|:-|
-8|2018-12-13|1.0|
+8|2018-12-14|2.0|
+8|2018-12-13|2.0|
 7|2018-12-12|3.5|
 6|2018-12-10|0.5|
 5|2018-12-08|3|
@@ -13,7 +14,7 @@ No|Date|Time (h)|Memo
 
 # Progress Management for implement
 ## Progress Rate
-20% (its just my feeling.)
+10% (its just my feeling.)
 ## Todo
 - [] album
     - [] contents
@@ -24,7 +25,7 @@ No|Date|Time (h)|Memo
         - [] read
         - [] update
         - [] delete
-    - [] spot
+    - [done] spot
         - [done] ajax select
     - [] photos
         - [done] create
@@ -38,6 +39,7 @@ No|Date|Time (h)|Memo
     - [] likes
     - [] comments
 - [] user
+- [] notification
 - [] top
 - [] master data
     - [wip] area data.

@@ -52,7 +52,7 @@ class SpotController extends Controller
 
     public function search(int $areaId = null)
     {
-        return Spot::showByArea($areaId);
+        return Spot::getByArea($areaId);
     }
 
     /**

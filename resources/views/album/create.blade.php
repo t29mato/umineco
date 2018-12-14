@@ -24,67 +24,52 @@
 <form action="/album/create" method="post">
     {{ csrf_field() }}
     <p class="lead">ダイビングスポット</p>
-    <div class="form-group mb-3" id="search-spot">
-        <table class="table">
-            <tbody>
-                <tr>
-                    <td>
-                        <select multiple class="form-control" id="area">
-                            <option value="">-- エリアを選択</option>
-                            @foreach ($areas as $area)
-                            <option value="{{ $area->id }}">{{ $area->name }}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td>
-                        <select multiple class="form-control" id="spot">
-                            <option value="">-- スポットを選択</option>
-                        </select>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <label for="exampleFormControlSelect2">Example multiple select</label>
+    <div class="row">
+        <div class="form-group mb-3 col-sm">
+            <label for="exampleFormControlInput1">エリア</label>
+            <select multiple class="form-control" id="area_id" name="area_id" required>
+                @foreach ($areas as $area)
+                {{ var_dump($area->id) }}
+                @if (old('area_id') == $area->id)
+                <option value="{{ $area->id }}" selected>{{ $area->name }}</option>
+                @else
+                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                @endif
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group mb-3 col-sm">
+            <label for="exampleFormControlInput1">スポット</label>
+            @foreach ($areas as $spots)
+            <optgroup lable="{{ $spots[0] }}">
+            @foreach ($spots as $spot)
+            <option value="{{ $spot->name }}"></option>
+            @endforeach
+            </optgroup>
+            @endforeach
+            <!-- <select multiple class="form-control" id="spot_id" name="spot_id" required>
+                <option value="">-- スポットを選択</option>
+            </select> -->
+        </div>
+
     </div>
     <p class="lead">日程</p>
     <div class="input-group mb-3">
-        <input type="date" class="form-control">
+        <input type="date" name="started_at" value="{{ old('started_at') }}" class="form-control" required>
         <div class="input-group-prepend">
             <span class="input-group-text" id="">〜</span>
         </div>
-        <input type="date" class="form-control">
-    </div>
-    <p class="lead">公開設定</p>
-    <div class="input-group mb-3">
-        <select class="custom-select" id="inputGroupSelect02">
-            <option value="1" selected>一般公開</option>
-            <option value="2">非公開</option>
-            <option value="3">限定公開</option>
-        </select>
-    </div>
-    <p class="lead">コメント設定</p>
-    <div class="input-group mb-3">
-        <select class="custom-select" id="inputGroupSelect02">
-            <option value="1" selected>受け付ける</option>
-            <option value="2">受け付けない</option>
-        </select>
+        <input type="date" name="ended_at" value="{{ old('ended_at') }}" class="form-control" required>
     </div>
     <hr>
     <p class="lead">タイトル</p>
     <div class="input-group mb-3">
-        <input type="text" name="title" value="" class="form-control" placeholder="タイトルを入力" aria-label="タイトルを入力"
-            aria-describedby="basic-addon1">
+        <input type="text" name="title" value="{{ old('title') }}" class="form-control" placeholder="タイトルを入力"
+            aria-label="タイトルを入力" aria-describedby="basic-addon1" required>
     </div>
     <p class="lead">メモ</p>
     <div class="input-group mb-3">
-        <textarea class="form-control" placeholder="メモを入力" aria-label="メモを入力"></textarea>
-    </div>
-    <p class="lead">タグ</p>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="キーワードで検索" aria-label="キーワードで検索" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">検索</button>
-        </div>
+        <textarea class="form-control" name="memo" value="{{ old('memo') }}" placeholder="メモを入力" aria-label="メモを入力"></textarea>
     </div>
     <p class="lead">画像</p>
     <!-- The fileinput-button span is used to style the file input field as button -->
@@ -92,7 +77,7 @@
         <i class="glyphicon glyphicon-plus"></i>
         <span>Select files...</span>
         <!-- The file input field used as target for the file upload widget -->
-        <input id="fileupload" type="file" name="photos[]" multiple>
+        <input id="fileupload" type="file" name="photos[]" multiple aria-label>
     </span>
     <br>
     <br>
@@ -103,7 +88,7 @@
     <!-- The container for the uploaded files -->
     <div id="files" class="files row"></div>
     <input type="hidden" name="file_ids" id="file_ids" value="">
-    <button type="button" class="btn btn-primary">アルバムを作成</button>
+    <button type="submit" class="btn btn-primary">アルバムを作成</button>
 </form>
 @endsection
 

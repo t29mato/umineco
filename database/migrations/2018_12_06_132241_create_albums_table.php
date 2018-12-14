@@ -15,7 +15,12 @@ class CreateAlbumsTable extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->increments('id');
+            $table->timestamp('started_at');
+            $table->timestamp('ended_at');
             $table->string('title');
+            $table->string('memo')->nullable();
+            $table->integer('spot_id');
+            //TODO: tag
             $table->timestamps();
         });
     }
