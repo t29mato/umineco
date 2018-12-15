@@ -18,7 +18,7 @@ class SpotTest extends TestCase
     {
         $areas = Spot::getAreasAndSpots();
         $this->assertArrayHasKey(0, $areas);
-        $this->assertArrayHasKey('area_id', $areas[0]);
+        $this->assertArrayHasKey('id', $areas[0]);
         $this->assertArrayHasKey('spots', $areas[0]);
     }
 }

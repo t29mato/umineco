@@ -28,10 +28,9 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        $spots = Spot::getAreasSpots();
-        Log::debug($areas);
+        $areas = Spot::getAreasAndSpots();
         $items = array(
-            'spots' => $spots,
+            'areas' => $areas,
         );
         return view('album.create', $items);
     }

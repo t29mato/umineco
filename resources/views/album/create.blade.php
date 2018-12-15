@@ -29,21 +29,16 @@
             <label for="exampleFormControlInput1">エリア</label>
             <select multiple class="form-control" id="area_id" name="area_id" required>
                 @foreach ($areas as $area)
-                {{ var_dump($area->id) }}
-                @if (old('area_id') == $area->id)
-                <option value="{{ $area->id }}" selected>{{ $area->name }}</option>
-                @else
-                <option value="{{ $area->id }}">{{ $area->name }}</option>
-                @endif
+                <option value="{{ $area['id'] }}">{{ $area['name'] }}</option>
                 @endforeach
             </select>
         </div>
         <div class="form-group mb-3 col-sm">
             <label for="exampleFormControlInput1">スポット</label>
-            @foreach ($areas as $spots)
-            <optgroup lable="{{ $spots[0] }}">
-            @foreach ($spots as $spot)
-            <option value="{{ $spot->name }}"></option>
+            @foreach ($areas as $area)
+            <optgroup lable="{{ $area['name'] }}">
+            @foreach ($area['spots'] as $spot)
+            <option value="{{ $spot->name }}">{{ $spot->name }}</option>
             @endforeach
             </optgroup>
             @endforeach
