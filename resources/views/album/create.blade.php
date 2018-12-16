@@ -35,18 +35,16 @@
         </div>
         <div class="form-group mb-3 col-sm">
             <label for="exampleFormControlInput1">スポット</label>
-            @foreach ($areas as $area)
-            <optgroup lable="{{ $area['name'] }}">
-            @foreach ($area['spots'] as $spot)
-            <option value="{{ $spot->name }}">{{ $spot->name }}</option>
-            @endforeach
-            </optgroup>
-            @endforeach
-            <!-- <select multiple class="form-control" id="spot_id" name="spot_id" required>
-                <option value="">-- スポットを選択</option>
-            </select> -->
+            <select multiple class="form-control multiple-task" id="spot_id" name="spot_id" required>
+                @foreach ($areas as $area)
+                <optgroup label="{{ $area['name'] }}">
+                    @foreach ($area['spots'] as $spot)
+                    <option value="{{ $spot->name }}">{{ $spot->name }}</option>
+                    @endforeach
+                </optgroup>
+                @endforeach
+            </select>
         </div>
-
     </div>
     <p class="lead">日程</p>
     <div class="input-group mb-3">
