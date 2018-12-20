@@ -28,7 +28,13 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        $areas = Spot::getAreasAndSpots();
+        $areas = Area::orderBy('id', 'asc')->with('spots:area_id,id,name')->get(['id', 'name']);
+        foreach ($areas as $area) {
+            if (isset($area->spots[1])) {
+                Log::debug($area->spots[1]);
+            }
+        }
+
         $items = array(
             'areas' => $areas,
         );
@@ -43,7 +49,6 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        Log::debug($request);
         $this->validate($request, Album::$rules);
         $album = Album::create($request->all());
         AlbumPhoto::whereIn('id', explode(",", $request->file_ids))

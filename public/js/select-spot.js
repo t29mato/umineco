@@ -1,22 +1,11 @@
 $(function () {
     'use strict';
-    var url = '/spot/search/';
-    $('#area_id').change(function() {
-        $.ajax({
-            url: url + $('#area_id').val(),
-            type: 'GET',
-            dataType: 'json',
-        }).done(function($data) {
-            $('#spot_id').empty();
-            $('#spot_id').append($('<option>').text('-- スポットを選択'));
-            $data.forEach($spot => {
-                var $option = $('<option>')
-                    .val($spot.id)
-                    .text($spot.name);
-                $('#spot_id').append($option);
-            });
-        }).fail(function() {
-            console.log('failed...');
-        })
+    $('#area').change(function () {
+        var $selectedSpotId = $('#area option:selected').data('spot');
+        $('#spot').val($selectedSpotId);
+    });
+    $('#spot').change(function () {
+        var $selectedSpotId = $('#spot option:selected').data('area');
+        $('#area').val($selectedSpotId);
     });
 });

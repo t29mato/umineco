@@ -27,22 +27,24 @@
     <div class="row">
         <div class="form-group mb-3 col-sm">
             <label for="exampleFormControlInput1">エリア</label>
-            <select multiple class="form-control" id="area_id" name="area_id" required>
+            <select class="form-control" id="area" name="area_id" required>
                 @foreach ($areas as $area)
-                <option value="{{ $area['id'] }}">{{ $area['name'] }}</option>
+                <option value="{{ $area->id }}" @if (isset($area->spots[0]->id)) data-spot="{{ $area->spots[0]->id }}" @endif>{{ $area->name }}</option>
                 @endforeach
+
             </select>
         </div>
         <div class="form-group mb-3 col-sm">
             <label for="exampleFormControlInput1">スポット</label>
-            <select multiple class="form-control multiple-task" id="spot_id" name="spot_id" required>
+            <select class="form-control multiple-task" id="spot" name="spot_id" required>
                 @foreach ($areas as $area)
-                <optgroup label="{{ $area['name'] }}">
-                    @foreach ($area['spots'] as $spot)
-                    <option value="{{ $spot->name }}">{{ $spot->name }}</option>
+                <optgroup label="{{ $area->name }}">
+                    @foreach ($area->spots as $spot)
+                    <option value="{{ $spot->id }}" data-area="{{ $area->id }}">{{ $spot->name }}</option>
                     @endforeach
                 </optgroup>
                 @endforeach
+
             </select>
         </div>
     </div>

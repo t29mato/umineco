@@ -4,10 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Area;
 
 class Spot extends Model
 {
     protected $fillable = array('name');
+
+    public function area()
+    {
+        return $this->belongsTo('Area');
+    }
 
     public static function getByArea($areaId) :array
     {
@@ -17,10 +23,10 @@ class Spot extends Model
             ->get();
     }
 
+    // TODO: maybe should be delete./
     public static function getAreasAndSpots() :array
     {
-        $areas = DB::table('areas')->get(['id', 'name']);
-        $spots = DB::table('spots')->get(['id', 'area_id', 'name']);
+        $areas = DB::table('areas')->orderBy('id', 'asc')->get(['id', 'name']);
         $areasAndSpots = [];
         foreach ($areas as $area) {
             $array = array(
