@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\Area;
 
 class Spot extends Model
 {
@@ -12,7 +11,7 @@ class Spot extends Model
 
     public function area()
     {
-        return $this->belongsTo('Area');
+        return $this->belongsTo('App\Area');
     }
 
     public static function getByArea($areaId) :array

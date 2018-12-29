@@ -53,7 +53,7 @@ class AlbumController extends Controller
         $album = Album::create($request->all());
         AlbumPhoto::whereIn('id', explode(",", $request->file_ids))
             ->update(['album_id' => $album->id]);
-        return redirect('/album');
+        return redirect('/album/' . $album->id);
     }
 
     /**
@@ -62,9 +62,11 @@ class AlbumController extends Controller
      * @param  \App\Album  $album
      * @return \Illuminate\Http\Response
      */
-    public function show(Album $album)
+    public function show(Request $request, $id)
     {
-        //
+        $album = Album::with(['spot.area', 'albumPhotos'])->find($id);
+        Log::debug($album);
+        return view('album.show', ['album' => $album]);
     }
 
     /**

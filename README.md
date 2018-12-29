@@ -24,8 +24,6 @@ No|Date|Time (h)|Memo
 ## Todo
 - [] album
     - [] contents
-        - [] create
-            - [] File Type Valijdate for image file on front-end.
         - [] read
         - [] update
         - [] delete

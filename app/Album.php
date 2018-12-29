@@ -21,4 +21,14 @@ class Album extends Model
         'title' => 'required|max:50',
         'memo' => 'max:5000',
     );
+
+    public function spot()
+    {
+        return $this->belongsTo('App\Spot');
+    }
+
+    public function albumPhotos()
+    {
+        return $this->hasMany('App\AlbumPhoto');
+    }
 }
