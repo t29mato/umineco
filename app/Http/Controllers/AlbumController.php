@@ -18,7 +18,9 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        return view('album.index');
+        $albums = Album::with(['spot.area', 'albumPhotos'])->take(10)->get();
+        Log::debug($albums);
+        return view('album.index', ['albums' => $albums]);
     }
 
     /**
@@ -57,7 +59,7 @@ class AlbumController extends Controller
      * @param  \App\Album  $album
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
         $album = Album::with(['spot.area', 'albumPhotos'])->find($id);
         return view('album.show', ['album' => $album]);
