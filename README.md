@@ -25,8 +25,7 @@ No|Date|Time (h)|Memo
 - [] album
     - [] contents
         - [] create
-            - [] File Type Validate for image file on front-end.
-            - [wip] store all input
+            - [] File Type Valijdate for image file on front-end.
         - [] read
         - [] update
         - [] delete
