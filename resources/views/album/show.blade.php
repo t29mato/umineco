@@ -40,7 +40,7 @@
             <img class="img-fluid" src="{{ Storage::url($photo->filename) }}">
         </a>
         <div class="input-group mb-3">
-
+            {{ $photo->memo }}
         </div>
     </div>
     @endforeach
