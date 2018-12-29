@@ -14,19 +14,19 @@
 <table class="table table-bordered">
     <tbody>
         <tr>
-            <th scope="row">ダイビングスポット</th>
+            <th class="table-primary">ダイビングスポット</th>
             <td>{{ $album->spot->area->name . ' ' . $album->spot->name }}</td>
         </tr>
         <tr>
-            <th scope="row">日程</th>
+            <th class="table-primary">日程</th>
             <td>{{ $album->started_at . ' 〜 ' . $album->ended_at }}</td>
         </tr>
         <tr>
-            <th scope="row">タイトル</th>
+            <th class="table-primary">タイトル</th>
             <td>{{ $album->title }}</td>
         </tr>
         <tr>
-            <th scope="row">メモ</th>
+            <th class="table-primary">メモ</th>
             <td>{{ $album->memo }}</td>
         </tr>
     </tbody>
