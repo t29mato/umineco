@@ -9,19 +9,18 @@ $(function () {
             },
             done: function (e, data) {
                 $.each(data.result.files, function (index, file) {
+                    // TODO: jQueryでDOM生成する
                     var html = '<div class="col-md-3">' +
                         '<a href="#" class="thumbnail">' +
                         '<img class="img-fluid" src="' + file.url + '">' +
                         '</a>' +
                         '<div class="input-group mb-3">' +
-                        '<input type="text" class="form-control" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1">' +
+                        '<input type="text" class="form-control" name="photo_memos[]" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1">' +
                         '</div>' +
-                        '</div>';
+                        '</div>' +
+                        '<input type="hidden" name="photo_ids[]" value="' + file.fileID + '">'
+                        ;
                     $('#files ').append(html);
-                    if ($('#file_ids').val() != '') {
-                        $('#file_ids').val($('#file_ids').val() + ',');
-                    }
-                    $('#file_ids').val($('#file_ids').val() + file.fileID);
                 });
             },
             progressall: function (e, data) {

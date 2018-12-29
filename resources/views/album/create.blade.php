@@ -82,7 +82,6 @@
     </div>
     <!-- The container for the uploaded files -->
     <div id="files" class="files row"></div>
-    <input type="hidden" name="file_ids" id="file_ids" value="">
     <button type="submit" class="btn btn-primary">アルバムを作成</button>
 </form>
 @endsection

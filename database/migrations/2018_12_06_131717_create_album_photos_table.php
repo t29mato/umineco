@@ -18,7 +18,9 @@ class CreateAlbumPhotosTable extends Migration
             $table->integer('album_id')->unsigned()->nullable();
             $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade')->onUpdate('cascade');;
             $table->string('filename');
+            $table->string('memo')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -29,16 +29,7 @@ class AlbumController extends Controller
     public function create()
     {
         $areas = Area::orderBy('id', 'asc')->with('spots:area_id,id,name')->get(['id', 'name']);
-        foreach ($areas as $area) {
-            if (isset($area->spots[1])) {
-                Log::debug($area->spots[1]);
-            }
-        }
-
-        $items = array(
-            'areas' => $areas,
-        );
-        return view('album.create', $items);
+        return view('album.create', ['areas' => $areas]);
     }
 
     /**
@@ -49,10 +40,14 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
+        Log::debug($request->all());
         $this->validate($request, Album::$rules);
         $album = Album::create($request->all());
-        AlbumPhoto::whereIn('id', explode(",", $request->file_ids))
-            ->update(['album_id' => $album->id]);
+        foreach ($request->photo_ids as $key => $photo_id) {
+            Log::debug($photo_id);
+            AlbumPhoto::where('id', $photo_id)
+                ->update(['memo' => $request->photo_memos[$key], 'album_id' => $album->id]);
+        }
         return redirect('/album/' . $album->id);
     }
 
@@ -65,7 +60,6 @@ class AlbumController extends Controller
     public function show(Request $request, $id)
     {
         $album = Album::with(['spot.area', 'albumPhotos'])->find($id);
-        Log::debug($album);
         return view('album.show', ['album' => $album]);
     }
 

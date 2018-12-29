@@ -49,9 +49,9 @@ class AlbumPhotoController extends Controller
             $photo_object->fileID = $album_photo->id;
             $photo_object->url = Storage::url($filename);
             $photos[] = $photo_object;
-            }
-            return response()->json(array('files' => $photos), 200);
         }
+        return response()->json(array('files' => $photos), 200);
+    }
 
     /**
      * Display the specified resource.
