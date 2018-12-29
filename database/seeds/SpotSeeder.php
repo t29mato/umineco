@@ -25,7 +25,32 @@ class SpotSeeder extends Seeder
                 array('name' => '支笏湖', 'name_kana' => 'しこつこ'),
                 array('name' => '知床ラウス', 'name_kana' => 'しれとこらうす'),
                 array('name' => '知床ウトロ', 'name_kana' => 'しれとこうとろ'),
-                array('name' => '焼尻島', 'name_kana' => 'やぎしりとう'),
+                array('name' => '焼尻島', 'name_kana' => 'やぎしりとう'), ),
+            '東北' => array(
+                array('name' => '女川', 'name_kana' => 'おながわ'),
+                array('name' => '四島', 'name_kana' => 'よつしま'),
+            ),
+            '北陸' => array(
+                array('name' => '佐渡島', 'name_kana' => 'さどしま'),
+            ),
+            '房総半島' => array(
+                array('name' => '勝浦', 'name_kana' => 'かつうら'),
+                array('name' => '行川', 'name_kana' => 'なめがわ'),
+                array('name' => '伊戸', 'name_kana' => 'いと'),
+                array('name' => '西川名', 'name_kana' => 'にわかわな'),
+            ),
+            '三浦半島' => array(
+                array('name' => '城ヶ島', 'name_kana' => 'じょうがしま'),
+            ),
+            '湘南' => array(
+                array('name' => '葉山', 'name_kana' => 'はやま'),
+                array('name' => '逗子', 'name_kana' => 'ずし'),
+                array('name' => '江ノ島', 'name_kana' => 'えのしま'),
+                array('name' => '早川', 'name_kana' => 'はやかわ'),
+                array('name' => '石橋', 'name_kana' => 'いしばし'),
+                array('name' => '根府川', 'name_kana' => 'ねぶがわ'),
+                array('name' => '江の浦', 'name_kana' => 'えのうら'),
+                array('name' => '岩', 'name_kana' => 'いわ'),
             ),
             '伊豆半島' => array(
                 array('name' => '伊豆山', 'name_kana' => 'いずさん'),
@@ -55,8 +80,41 @@ class SpotSeeder extends Seeder
                 array('name' => '神子元島', 'name_kana' => 'みこもと'),
                 array('name' => '中木', 'name_kana' => 'なかぎ'),
             ),
+            '伊豆諸島・小笠原諸島' => array(
+                array('name' => '伊豆大島', 'name_kana' => 'いずおおしま'),
+                array('name' => '利島', 'name_kana' => 'としま'),
+                array('name' => '新島', 'name_kana' => 'にいじま'),
+                array('name' => '式根島', 'name_kana' => 'しきねじま'),
+                array('name' => '神津島', 'name_kana' => 'こうづしま'),
+                array('name' => '三宅島', 'name_kana' => 'みやけじま'),
+                array('name' => '八丈島', 'name_kana' => 'はちじょうじま'),
+                array('name' => '小笠原', 'name_kana' => 'おがさわら'),
+            ),
+            '紀伊半島' => array(
+                array('name' => '名前01', 'name_kana' => '読み仮名01'),
+            ),
+            '四国' => array(
+                array('name' => '名前02', 'name_kana' => '読み仮名02'),
+            ),
+            '山陽' => array(
+                array('name' => '名前03', 'name_kana' => '読み仮名03'),
+            ),
+            '九州' => array(
+                array('name' => '名前04', 'name_kana' => '読み仮名04'),
+            ),
+            '薩南諸島' => array(
+                array('name' => '名前05', 'name_kana' => '読み仮名05'),
+            ),
+            '沖縄本島' => array(
+                array('name' => '名前06', 'name_kana' => '読み仮名06'),
+            ),
+            '沖縄離島' => array(
+                array('name' => '名前07', 'name_kana' => '読み仮名07'),
+            ),
+
         );
 
+        // REFACTOR: merge AreaSeeder and SpotSeeder
         foreach ($items as $area => $spots) {
             foreach ($spots as $spot) {
                 DB::table('spots')->insert(
