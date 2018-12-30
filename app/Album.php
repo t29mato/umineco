@@ -3,16 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Album extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'spot_id',
         'started_at',
         'ended_at',
         'title',
         'memo',
+        'deleted_at',
     ];
+
+    protected $dates = ['deleted_at'];
 
     public static $rules = array(
         'spot_id' => 'required|integer',

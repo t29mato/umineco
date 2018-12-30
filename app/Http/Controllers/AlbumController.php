@@ -97,4 +97,11 @@ class AlbumController extends Controller
     {
         //
     }
+
+    public function delete($id)
+    {
+        Album::find($id)->delete();
+        AlbumPhoto::where(['album_id' => $id])->delete();
+        return redirect()->route('album.index');
+    }
 }

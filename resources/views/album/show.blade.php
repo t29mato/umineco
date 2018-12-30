@@ -24,8 +24,6 @@
         </tr>
     </tbody>
 </table>
-</form>
-
 <div id="files" class="files row">
     @foreach ($album->albumPhotos as $photo)
     <div class="col-md-3">
@@ -37,6 +35,28 @@
         </div>
     </div>
     @endforeach
+</div>
+<button type="button" class="btn btn-outline-secondary m-2" data-toggle="modal" data-target="#exampleModal">アルバム削除</button>
+<a href="" class="btn btn-outline-primary m-2" data-target="#exampleModal">アルバム編集</a>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">アルバム削除</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        アルバムを削除すると他の人からアルバムが見えなくなります。ただしアルバムの復元もできなくなります。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">削除しない</button>
+        <a href="{{ route('album.delete', ['id' => $album->id]) }}" class="btn btn-danger">本当に削除する</a>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
 @section('sideContents')
