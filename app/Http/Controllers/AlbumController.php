@@ -70,9 +70,14 @@ class AlbumController extends Controller
      * @param  \App\Album  $album
      * @return \Illuminate\Http\Response
      */
-    public function edit(Album $album)
+    public function edit($id)
     {
-        //
+        $album = Album::with(['spot.area', 'albumPhotos'])->find($id);
+        $areas = Area::orderBy('id', 'asc')->with('spots:area_id,id,name')->get(['id', 'name']);
+        return view('album.edit', [
+            'album' => $album,
+            'areas' => $areas,
+        ]);
     }
 
     /**

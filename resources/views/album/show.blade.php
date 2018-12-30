@@ -37,7 +37,7 @@
     @endforeach
 </div>
 <button type="button" class="btn btn-outline-secondary m-2" data-toggle="modal" data-target="#exampleModal">アルバム削除</button>
-<a href="" class="btn btn-outline-primary m-2" data-target="#exampleModal">アルバム編集</a>
+<a href="{{ route('album.edit', ['id' => $album->id]) }}" class="btn btn-outline-primary m-2" data-target="#exampleModal">アルバム編集</a>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

@@ -20,6 +20,11 @@ Breadcrumbs::for('album.create', function($trail) {
 // Home > Album > [id]
 Breadcrumbs::for('album.show', function ($trail, $album) {
     $trail->parent('album.index');
-    // TODO: URL正しいかコメントなどが増えた時に確認する
     $trail->push($album->title, route('album.show', $album->id));
+});
+
+// Home > Album > [id] > edit
+Breadcrumbs::for('album.edit', function ($trail, $album) {
+    $trail->parent('album.show', $album);
+    $trail->push('Edit', route('album.edit', $album->id));
 });

@@ -22,7 +22,8 @@ Route::group(['prefix' => 'album'], function () {
     Route::get('/create', 'AlbumController@create')->name('album.create');
     Route::post('/create', 'AlbumController@store')->name('album.store');
     Route::get('/{id}', 'AlbumController@show')->name('album.show');
-    Route::get('/delete/{id}', 'AlbumController@delete')->name('album.delete');
+    Route::get('/{id}/edit', 'AlbumController@edit')->name('album.edit');
+    Route::get('/{id}/delete', 'AlbumController@delete')->name('album.delete');
     Route::post('/photo/create', 'AlbumPhotoController@store');
 });
 
