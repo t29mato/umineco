@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('mainContents')
+{{ Breadcrumbs::render('album.index') }}
 <h1>みんなのアルバム</h1>
 <div class="row">
     @foreach ($albums as $i => $album)

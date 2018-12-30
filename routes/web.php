@@ -11,15 +11,11 @@
 |
 */
 
-Route::get(
-    '/', function () {
-        return view('welcome');
-    }
-);
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'album'], function () {
     Route::get('/', 'AlbumController@index')->name('album.index');

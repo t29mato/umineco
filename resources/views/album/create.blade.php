@@ -10,6 +10,7 @@
 @endsection
 
 @section('mainContents')
+{{ Breadcrumbs::render('album.create') }}
 <h1>アルバム作成</h1>
 @if (count($errors) > 0)
 <div>
