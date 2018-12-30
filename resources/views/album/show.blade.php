@@ -1,14 +1,5 @@
 @extends('layouts.app')
 
-@section('script')
-<script src="/js/fileupload/jquery.ui.widget.js"></script>
-<script src="/js/fileupload/jquery.iframe-transport.js"></script>
-<script src="/js/fileupload/jquery.fileupload.js"></script>
-<script src="/js/fileupload/init.js"></script>
-<script src="/js/reload-forbidden.js"></script>
-<script src="/js/select-spot.js"></script>
-@endsection
-
 @section('mainContents')
 <h1>アルバム</h1>
 <table class="table table-bordered">
@@ -40,7 +31,7 @@
             <img class="img-fluid" src="{{ Storage::url($photo->filename) }}">
         </a>
         <div class="input-group mb-3">
-
+            {{ $photo->memo }}
         </div>
     </div>
     @endforeach
