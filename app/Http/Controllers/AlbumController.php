@@ -7,7 +7,6 @@ use App\AlbumPhoto;
 use App\Area;
 use App\Spot;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class AlbumController extends Controller
 {
@@ -41,11 +40,9 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        Log::debug($request->all());
         $this->validate($request, Album::$rules);
         $album = Album::create($request->all());
         foreach ($request->photo_ids as $key => $photo_id) {
-            Log::debug($photo_id);
             AlbumPhoto::where('id', $photo_id)
                 ->update(['memo' => $request->photo_memos[$key], 'album_id' => $album->id]);
         }
