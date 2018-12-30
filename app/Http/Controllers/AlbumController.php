@@ -19,7 +19,6 @@ class AlbumController extends Controller
     public function index()
     {
         $albums = Album::with(['spot.area', 'albumPhotos'])->take(10)->get();
-        Log::debug($albums);
         return view('album.index', ['albums' => $albums]);
     }
 
