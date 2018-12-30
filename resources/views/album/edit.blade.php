@@ -30,8 +30,7 @@
             <label for="exampleFormControlInput1">エリア</label>
             <select class="form-control" id="area" name="area_id" required>
                 @foreach ($areas as $area)
-                <option value="{{ $area->id }}"
-                    @if (isset($area->spots[0]->id))
+                <option value="{{ $area->id }}" @if (isset($area->spots[0]->id))
                     data-spot="{{ $area->spots[0]->id }}"
                     @endif
                     @if ($area->id === $album->spot->area->id)
@@ -49,8 +48,7 @@
                 @foreach ($areas as $area)
                 <optgroup label="{{ $area->name }}">
                     @foreach ($area->spots as $spot)
-                    <option value="{{ $spot->id }}" data-area="{{ $area->id }}"
-                        @if ($spot->id === $album->spot->id)
+                    <option value="{{ $spot->id }}" data-area="{{ $area->id }}" @if ($spot->id === $album->spot->id)
                         selected
                         @endif
                         >{{ $spot->name }}
@@ -80,6 +78,19 @@
     <div class="input-group mb-3">
         <textarea class="form-control" name="memo" placeholder="メモを入力" aria-label="メモを入力">{{ $album->memo }}</textarea>
     </div>
+    <div id="files" class="files row">
+        @foreach ($album->albumPhotos as $photo)
+        <div class="col-md-3">
+            <a href="#" class="thumbnail">
+                <img class="img-fluid" src="{{ Storage::url($photo->filename) }}">
+            </a>
+            <div class="input-group mb-3">
+                {{ $photo->memo }}
+            </div>
+        </div>
+        @endforeach
+    </div>
+
     <p class="lead">画像</p>
     <!-- The fileinput-button span is used to style the file input field as button -->
     <span class="btn btn-success fileinput-button">
