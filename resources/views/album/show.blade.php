@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('mainContents')
-{{ Breadcrumbs::render('album_id', $album) }}
+{{ Breadcrumbs::render('album.show', $album) }}
 
 <h1>アルバム</h1>
 <table class="table table-bordered">

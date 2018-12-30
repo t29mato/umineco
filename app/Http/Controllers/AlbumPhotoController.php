@@ -39,14 +39,8 @@ class AlbumPhotoController extends Controller
         $photos = [];
         foreach ($request->photos as $photo) {
             $filename = $photo->store('public/photos');
-            $album_photo = AlbumPhoto::create([
-                'filename' => $filename
-            ]);
-
             $photo_object = new \stdClass();
-            $photo_object->name = $photo->getClientOriginalName();
-            $photo_object->size = round(Storage::size($filename) / 1024, 2);
-            $photo_object->fileID = $album_photo->id;
+            $photo_object->name = $filename;
             $photo_object->url = Storage::url($filename);
             $photos[] = $photo_object;
         }

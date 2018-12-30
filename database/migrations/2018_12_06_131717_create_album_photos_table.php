@@ -15,7 +15,7 @@ class CreateAlbumPhotosTable extends Migration
     {
         Schema::create('album_photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('album_id')->unsigned()->nullable();
+            $table->integer('album_id')->unsigned();
             $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade')->onUpdate('cascade');;
             $table->string('filename');
             $table->string('memo')->nullable();

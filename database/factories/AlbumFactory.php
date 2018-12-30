@@ -7,7 +7,7 @@ $factory->define(App\Album::class, function (Faker $faker) {
         'spot_id' => rand(1, 50),
         'started_at' => $faker->dateTimeBetween(),
         'ended_at' => $faker->dateTimeBetween(),
-        'title' => $faker->sentence(),
-        'memo' => $faker->paragraph(),
+        'title' => $faker->realText(20),
+        'memo' => $faker->realText(80),
     ];
 });

@@ -42,9 +42,12 @@ class AlbumController extends Controller
     {
         $this->validate($request, Album::$rules);
         $album = Album::create($request->all());
-        foreach ($request->photo_ids as $key => $photo_id) {
-            AlbumPhoto::where('id', $photo_id)
-                ->update(['memo' => $request->photo_memos[$key], 'album_id' => $album->id]);
+        foreach ($request->photo_names as $key => $photo_id) {
+            AlbumPhoto::create([
+                'memo' => $request->photo_memos[$key],
+                'filename' => $request->photo_names[$key],
+                'album_id' => $album->id
+            ]);
         }
         return redirect('/album/' . $album->id);
     }

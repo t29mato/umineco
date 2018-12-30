@@ -18,9 +18,9 @@ $(function () {
                         '<input type="text" class="form-control" name="photo_memos[]" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1">' +
                         '</div>' +
                         '</div>' +
-                        '<input type="hidden" name="photo_ids[]" value="' + file.fileID + '">'
+                        '<input type="hidden" name="photo_names[]" value="' + file.name + '">'
                         ;
-                    $('#files ').append(html);
+                    $('#files').append(html);
                 });
             },
             progressall: function (e, data) {
