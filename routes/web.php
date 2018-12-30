@@ -22,10 +22,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'album'], function () {
-    Route::get('/', 'AlbumController@index');
-    Route::get('/create', 'AlbumController@create');
-    Route::post('/create', 'AlbumController@store');
-    Route::get('/{id}', 'AlbumController@show');
+    Route::get('/', 'AlbumController@index')->name('album.index');
+    Route::get('/create', 'AlbumController@create')->name('album.create');
+    Route::post('/create', 'AlbumController@store')->name('album.store');
+    Route::get('/{id}', 'AlbumController@show')->name('album.show');
     Route::post('/photo/create', 'AlbumPhotoController@store');
 });
 
