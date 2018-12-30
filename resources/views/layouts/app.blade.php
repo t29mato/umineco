@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -74,7 +75,7 @@
 
         <main class="py-4">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-9">
                         @yield('mainContents')
                     </div>
