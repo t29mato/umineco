@@ -27,7 +27,7 @@
         <div class="card-body">
             <p class="card-text">
                 場所：{{ $album->spot->area->name . ' / ' . $album->spot->name }}<br>
-                作成日：{{ $album->created_at }} <br>
+                作成日：{{ $album->created_at->format('Y-m-d H:i') }} <br>
                 <a href="{{ route('album.show', ['id' => $album->id]) }}">{{ $album->title }}</a>
             </p>
         </div>
