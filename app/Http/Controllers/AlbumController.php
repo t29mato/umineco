@@ -87,9 +87,12 @@ class AlbumController extends Controller
      * @param  \App\Album  $album
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Album $album)
+    public function update(Request $request, $id)
     {
-        //
+        // TODO: it might be necessary albumPhoto validate.
+        $this->validate($request, Album::$rules);
+        $album = Album::find($id)->update($request->all());
+        return redirect(route('album.show', $id));
     }
 
     /**

@@ -11,7 +11,7 @@
 
 @section('mainContents')
 {{ Breadcrumbs::render('album.edit', $album) }}
-<h1>アルバム作成</h1>
+<h1>アルバム編集</h1>
 @if (count($errors) > 0)
 <div>
     <ul>
@@ -22,7 +22,7 @@
 </div>
 @endif
 
-<form action="/album/create" method="post">
+<form action="{{ route('album.update', $album->id) }}" method="post">
     {{ csrf_field() }}
     <p class="lead">ダイビングスポット</p>
     <div class="row">
@@ -30,7 +30,15 @@
             <label for="exampleFormControlInput1">エリア</label>
             <select class="form-control" id="area" name="area_id" required>
                 @foreach ($areas as $area)
-                <option value="{{ $area->id }}" @if (isset($area->spots[0]->id)) data-spot="{{ $area->spots[0]->id }}" @endif>{{ $area->name }}</option>
+                <option value="{{ $area->id }}"
+                    @if (isset($area->spots[0]->id))
+                    data-spot="{{ $area->spots[0]->id }}"
+                    @endif
+                    @if ($area->id === $album->spot->area->id)
+                    selected
+                    @endif
+                    >{{ $area->name }}
+                </option>
                 @endforeach
 
             </select>
@@ -41,7 +49,12 @@
                 @foreach ($areas as $area)
                 <optgroup label="{{ $area->name }}">
                     @foreach ($area->spots as $spot)
-                    <option value="{{ $spot->id }}" data-area="{{ $area->id }}">{{ $spot->name }}</option>
+                    <option value="{{ $spot->id }}" data-area="{{ $area->id }}"
+                        @if ($spot->id === $album->spot->id)
+                        selected
+                        @endif
+                        >{{ $spot->name }}
+                    </option>
                     @endforeach
                 </optgroup>
                 @endforeach
@@ -51,21 +64,21 @@
     </div>
     <p class="lead">日程</p>
     <div class="input-group mb-3">
-        <input type="date" name="started_at" value="{{ old('started_at') }}" class="form-control" required>
+        <input type="date" name="started_at" value="{{ $album->started_at }}" class="form-control" required>
         <div class="input-group-prepend">
             <span class="input-group-text" id="">〜</span>
         </div>
-        <input type="date" name="ended_at" value="{{ old('ended_at') }}" class="form-control" required>
+        <input type="date" name="ended_at" value="{{ $album->ended_at }}" class="form-control" required>
     </div>
     <hr>
     <p class="lead">タイトル</p>
     <div class="input-group mb-3">
-        <input type="text" name="title" value="{{ old('title') }}" class="form-control" placeholder="タイトルを入力"
+        <input type="text" name="title" value="{{ $album->title }}" class="form-control" placeholder="タイトルを入力"
             aria-label="タイトルを入力" aria-describedby="basic-addon1" required>
     </div>
     <p class="lead">メモ</p>
     <div class="input-group mb-3">
-        <textarea class="form-control" name="memo" value="{{ old('memo') }}" placeholder="メモを入力" aria-label="メモを入力"></textarea>
+        <textarea class="form-control" name="memo" placeholder="メモを入力" aria-label="メモを入力">{{ $album->memo }}</textarea>
     </div>
     <p class="lead">画像</p>
     <!-- The fileinput-button span is used to style the file input field as button -->
@@ -83,7 +96,7 @@
     </div>
     <!-- The container for the uploaded files -->
     <div id="files" class="files row"></div>
-    <button type="submit" class="btn btn-primary">アルバムを作成</button>
+    <button type="submit" class="btn btn-primary">アルバムを更新</button>
 </form>
 @endsection
 
