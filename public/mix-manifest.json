@@ -1,8 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/js/fileupload/jquery.fileupload.js": "/js/fileupload/jquery.fileupload.js",
-    "/js/fileupload/jquery.ui.widget.js": "/js/fileupload/jquery.ui.widget.js",
-    "/js/fileupload/jquery.iframe-transport.js": "/js/fileupload/jquery.iframe-transport.js",
-    "/js/fileupload/init.js": "/js/fileupload/init.js"
+    "/css/app.css": "/css/app.css"
 }
