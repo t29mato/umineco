@@ -11,6 +11,7 @@ class Album extends Model
 
     protected $fillable = [
         'spot_id',
+        'user_id',
         'started_at',
         'ended_at',
         'title',

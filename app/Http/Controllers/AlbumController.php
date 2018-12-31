@@ -42,7 +42,14 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Album::$rules);
-        $album = Album::create($request->all());
+        $album = Album::create([
+            'spot_id' => $request->spot_id,
+            'user_id' => \Auth::id(),
+            'started_at' => $request->started_at,
+            'ended_at' => $request->ended_at,
+            'title' => $request->title,
+            'memo' => $request->memo,
+        ]);
         foreach ($request->photo_names as $key => $photo_id) {
             AlbumPhoto::create([
                 'memo' => $request->photo_memos[$key],
@@ -93,6 +100,8 @@ class AlbumController extends Controller
         // TODO: it might be necessary albumPhoto validate.
         $this->validate($request, Album::$rules);
         Album::find($id)->update($request->all());
+
+        // TODO: it shoudle be hard delete or should change if there is change for data.
         AlbumPhoto::where('album_id', $id)->delete();
         foreach ($request->photo_names as $key => $photo_id) {
             $albumPhoto = AlbumPhoto::create([

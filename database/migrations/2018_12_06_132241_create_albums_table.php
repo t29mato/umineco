@@ -20,6 +20,7 @@ class CreateAlbumsTable extends Migration
             $table->string('title');
             $table->string('memo')->nullable();
             $table->integer('spot_id');
+            $table->integer('user_id');
             $table->timestamps();
             $table->softDeletes();
         });

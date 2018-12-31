@@ -36,6 +36,11 @@ class AlbumPhotoController extends Controller
      */
     public function store(Request $request)
     {
+        //
+    }
+
+    public function upload(Request $request)
+    {
         $photos = [];
         foreach ($request->photos as $photo) {
             $filename = $photo->store('public/photos');
@@ -45,6 +50,7 @@ class AlbumPhotoController extends Controller
             $photos[] = $photo_object;
         }
         return response()->json(array('files' => $photos), 200);
+
     }
 
     /**

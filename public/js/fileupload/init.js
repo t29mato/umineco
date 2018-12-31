@@ -1,6 +1,6 @@
 $(function () {
     'use strict';
-    var url = '/album/photo/create';
+    var url = '/album/photo/upload';
     $('#fileupload').fileupload({
             url: url,
             dataType: 'json',
