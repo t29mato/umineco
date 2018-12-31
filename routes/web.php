@@ -20,7 +20,7 @@ Auth::routes();
 Route::group(['prefix' => 'album'], function () {
     Route::get('/', 'AlbumController@index')->name('album.index');
     Route::get('/create', 'AlbumController@create')->name('album.create')->middleware('auth');
-    Route::post('/create', 'AlbumController@store')->name('album.store');
+    Route::post('/create', 'AlbumController@store')->name('album.store')->middleware('auth');;
     Route::get('/{id}', 'AlbumController@show')->name('album.show');
     Route::get('/{id}/edit', 'AlbumController@edit')->name('album.edit')->middleware('auth');;
     Route::post('/{id}/update', 'AlbumController@update')->name('album.update');
