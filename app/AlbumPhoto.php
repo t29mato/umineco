@@ -13,11 +13,13 @@ class AlbumPhoto extends Model
         'album_id',
         'filename',
         'deleted_at',
+        'memo',
     );
 
     protected $dates = ['deleted_at'];
 
     public static $rules = array(
+        'album_id' => 'required|integer',
         'filename' => 'required',
     );
 

@@ -7,6 +7,7 @@ use App\AlbumPhoto;
 use App\Area;
 use App\Spot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AlbumController extends Controller
 {
@@ -91,7 +92,15 @@ class AlbumController extends Controller
     {
         // TODO: it might be necessary albumPhoto validate.
         $this->validate($request, Album::$rules);
-        $album = Album::find($id)->update($request->all());
+        Album::find($id)->update($request->all());
+        AlbumPhoto::where('album_id', $id)->delete();
+        foreach ($request->photo_names as $key => $photo_id) {
+            $albumPhoto = AlbumPhoto::create([
+                'memo' => $request->photo_memos[$key],
+                'filename' => $request->photo_names[$key],
+                'album_id' => $id
+            ]);
+        }
         return redirect(route('album.show', $id));
     }
 

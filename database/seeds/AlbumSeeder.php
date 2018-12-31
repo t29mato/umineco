@@ -11,7 +11,7 @@ class AlbumSeeder extends Seeder
      */
     public function run()
     {
-        $albums = factory(App\Album::class, 3)->create();
+        $albums = factory(App\Album::class, 1)->create();
         foreach ($albums as $album) {
             factory(App\AlbumPhoto::class, 2)->create([
                 'album_id' => $album->id,

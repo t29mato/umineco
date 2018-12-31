@@ -15,11 +15,11 @@ $(function () {
                         '<img class="img-fluid" src="' + file.url + '">' +
                         '</a>' +
                         '<div class="input-group mb-3">' +
-                        '<input type="text" class="form-control" name="photo_memos[]" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1">' +
+                        '<p><input type="text" class="form-control" name="photo_memos[]" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1"></p>' +
+                        '<button type="button" class="btn btn-secondary" onclick="$(this).parent().parent().remove()">写真削除</button>' +
+                        '<input type="hidden" name="photo_names[]" value="' + file.name + '">' +
                         '</div>' +
-                        '</div>' +
-                        '<input type="hidden" name="photo_names[]" value="' + file.name + '">'
-                        ;
+                        '</div>';
                     $('#files').append(html);
                 });
             },

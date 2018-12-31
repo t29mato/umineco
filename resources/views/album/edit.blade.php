@@ -78,19 +78,6 @@
     <div class="input-group mb-3">
         <textarea class="form-control" name="memo" placeholder="メモを入力" aria-label="メモを入力">{{ $album->memo }}</textarea>
     </div>
-    <div id="files" class="files row">
-        @foreach ($album->albumPhotos as $photo)
-        <div class="col-md-3">
-            <a href="#" class="thumbnail">
-                <img class="img-fluid" src="{{ Storage::url($photo->filename) }}">
-            </a>
-            <div class="input-group mb-3">
-                {{ $photo->memo }}
-            </div>
-        </div>
-        @endforeach
-    </div>
-
     <p class="lead">画像</p>
     <!-- The fileinput-button span is used to style the file input field as button -->
     <span class="btn btn-success fileinput-button">
@@ -106,7 +93,20 @@
         <div class="progress-bar progress-bar-success"></div>
     </div>
     <!-- The container for the uploaded files -->
-    <div id="files" class="files row"></div>
+    <div id="files" class="files row">
+        @foreach ($album->albumPhotos as $index => $photo)
+        <div class="col-md-3">
+            <a href="#" class="thumbnail">
+                <img class="img-fluid" src="{{ Storage::url($photo->filename) }}">
+            </a>
+            <div class="input-group mb-3">
+                <p><input type="text" class="form-control" name="photo_memos[]" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1" value="{{ $photo->memo }}"></p>
+                <button type="button" class="btn btn-secondary" onclick="$(this).parent().parent().remove()">写真削除</button>
+                <input type="hidden" name="photo_names[]" value="{{ $photo->filename }}">
+            </div>
+        </div>
+        @endforeach
+    </div>
     <button type="submit" class="btn btn-primary">アルバムを更新</button>
 </form>
 @endsection
