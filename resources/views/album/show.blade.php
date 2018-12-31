@@ -49,7 +49,7 @@
         </button>
       </div>
       <div class="modal-body">
-        アルバムを削除すると他の人からアルバムが見えなくなります。ただしアルバムの復元もできなくなります。
+        アルバムを削除すると他の人からアルバムが見えなくなります。
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">削除しない</button>
