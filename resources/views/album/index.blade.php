@@ -6,6 +6,7 @@
 <div class="row">
     @foreach ($albums as $i => $album)
     <div class="card m-1" style="width: 16rem;">
+        <div class="card-header">{{ $album->user->name }}<br>{{ $album->created_at->format('Y-m-d') }}</div>
         <div id="carouselExampleControls-{{ $i }}" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 @foreach ($album->albumPhotos as $j => $albumPhoto)
@@ -24,14 +25,14 @@
             </a>
         </div>
 
-        <div class="card-body">
-            <p class="card-text">
-                ユーザー：{{ $album->user->name }}<br>
-                場所：{{ $album->spot->area->name . ' / ' . $album->spot->name }}<br>
-                作成日：{{ $album->created_at->format('Y-m-d H:i') }} <br>
-                <a href="{{ route('album.show', ['id' => $album->id]) }}">{{ $album->title }}</a>
-            </p>
-        </div>
+        <a href="{{ route('album.show', ['id' => $album->id]) }}">
+            <div class="card-body">
+                <p class="card-text">
+                    {{ $album->title }}<br>
+                    {{ $album->spot->area->name . ' / ' . $album->spot->name }}
+                </p>
+            </div>
+        </a>
     </div>
     @endforeach
 </div>

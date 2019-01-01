@@ -40,7 +40,8 @@
     </div>
     @endforeach
 </div>
-@if (Auth::id() === $album->user_id)
+<!-- FIXME: double equal is ok? -->
+@if (Auth::id() == $album->user_id)
 <button type="button" class="btn btn-outline-secondary m-2" data-toggle="modal" data-target="#exampleModal">アルバム削除</button>
 <a href="{{ route('album.edit', ['id' => $album->id]) }}" class="btn btn-outline-primary m-2" data-target="#exampleModal">アルバム編集</a>
 @endif
