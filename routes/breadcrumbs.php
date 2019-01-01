@@ -28,3 +28,9 @@ Breadcrumbs::for('album.edit', function ($trail, $album) {
     $trail->parent('album.show', $album);
     $trail->push('Edit', route('album.edit', $album->id));
 });
+
+// Home > Settings
+Breadcrumbs::for('settings.profile', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Settings', route('settings.profile'));
+});

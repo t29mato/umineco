@@ -28,6 +28,9 @@ class User extends Authenticatable
         'organization',
     ];
 
+    public static $rules = [
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
