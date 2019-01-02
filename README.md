@@ -1,5 +1,6 @@
 # time tracking
 total time is 18 hour. ??
+
 No|Date|Time (h)|Memo
 |:-|:-|:-|:-|
 19|2019-01-02|2.0|
