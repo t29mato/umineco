@@ -5,7 +5,6 @@
 <script src="/js/fileupload/jquery.iframe-transport.js"></script>
 <script src="/js/fileupload/jquery.fileupload.js"></script>
 <script src="/js/fileupload/init.js"></script>
-<script src="/js/reload-forbidden.js"></script>
 <script src="/js/select-spot.js"></script>
 @endsection
 

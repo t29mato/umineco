@@ -15,8 +15,8 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        $userId = \Auth::id();
-        $user = User::find($userId)->update($request->all());
+        $this->validate($request, User::$rules);
+        $user = User::find(\Auth::id())->update($request->all());
         return redirect(route('settings.profile'));
     }
 }
