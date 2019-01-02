@@ -2,9 +2,10 @@
 total time is 18 hour. ??
 No|Date|Time (h)|Memo
 |:-|:-|:-|:-|
-15|2019-01-01|5.0|
-15|2018-12-31|4.0|
-15|2018-12-30|8.0|
+19|2019-01-02|2.0|
+18|2019-01-01|5.0|
+17|2018-12-31|4.0|
+16|2018-12-30|8.0|
 15|2018-12-29|5.0|
 14|2018-12-26|0.5|
 13|2018-12-24|0.5|
@@ -20,43 +21,6 @@ No|Date|Time (h)|Memo
 03|2018-12-06|3.0|
 02|2018-12-05|3.0|
 01|2018-12-04|3.0|
-
-# Progress Management for implement
-## Progress Rate
-10% (its just my feeling.)
-## Todo
-- [] album
-    - [] contents
-        - [] read
-        - [] update
-        - [] delete
-    - [] photos
-        - [] read
-        - [] update
-        - [] delete
-            - [] likes
-            - [] comments
-        - [] tag
-        - [] title
-    - [] likes
-    - [] comments
-- [] user
-- [] notification
-- [] top
-- [] master data
-    - [wip] area data.
-- [] other
-    - [] load jquery offline
-
-# Progress Management for environment
-## Progress Rate
-15% (its just my feeling.)
-
-## Todo
-- [done] local env
-- [] production env
-- [] staging env
-- [] test env
 
 # reference
 - multiple file upload
