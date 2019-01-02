@@ -5,8 +5,6 @@
 <script src="/js/fileupload/jquery.iframe-transport.js"></script>
 <script src="/js/fileupload/jquery.fileupload.js"></script>
 <script src="/js/fileupload/init.js"></script>
-<script src="/js/reload-forbidden.js"></script>
-<script src="/js/select-spot.js"></script>
 @endsection
 
 @section('mainContents')
@@ -100,7 +98,7 @@
                 <img class="img-fluid" src="{{ Storage::url($photo->filename) }}">
             </a>
             <div class="input-group mb-3">
-                <p><input type="text" class="form-control" name="photo_memos[]" placeholder="タイトルを入力" aria-label="タイトルを入力" aria-describedby="basic-addon1" value="{{ $photo->memo }}"></p>
+                <p><textarea class="form-control" name="photo_memos[]" placeholder="メモを入力" aria-label="メモを入力">{{ $photo->memo }}</textarea></p>
                 <button type="button" class="btn btn-secondary" onclick="$(this).parent().parent().remove()">写真削除</button>
                 <input type="hidden" name="photo_names[]" value="{{ $photo->filename }}">
             </div>
