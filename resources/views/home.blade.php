@@ -21,5 +21,4 @@
         </div>
     </div>
 </div>
-{{ Breadcrumbs::render('home') }}
 @endsection
